@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
   def counts(user)
     @count_tasks = user.tasks.count
   end
+  
+  def correct_user2
+    unless current_user.id == params[:id] 
+      redirect_to root_path
+    end
+  end
 end
